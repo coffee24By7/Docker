@@ -11,5 +11,10 @@ WORKDIR "/delicious"
 
 RUN npm install
 
+EXPOSE 7777
+EXPOSE 8080
 
-ENTRYPOINT ["node", "start"]
+# ENTRYPOINT ["npm", "start"]
+COPY ./startup.sh /delicious/startup.sh
+RUN chmod 777 /delicious/startup.sh
+CMD ["./startup.sh"]

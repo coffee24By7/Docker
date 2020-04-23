@@ -2,29 +2,28 @@
 version: "3.3"
 services:
   node:
-    image: delicious:0.1.1
+    image: delicious:0.1.2
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "127.0.0.1:7777:7777"
+      - "127.0.0.1:8080:8080"
     env_file: 
       - variables.env
     volumes: 
       - ./app:/delicious/app
     networks:
-      - network
+      - deliciousnetwork
     depends_on:
       - mongo
   mongo:
       container_name: mongo
       image: mongo:latest
       ports:
-      - "27017:27017"
+        - "127.0.0.1:27017:27017"
       networks:
-      - network
-      expose:
-        - '27017'
+        - deliciousnetwork
 networks:
-  network:
+  deliciousnetwork:
     driver: bridge

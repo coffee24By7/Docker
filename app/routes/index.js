@@ -42,4 +42,6 @@ router.post('/register',
 
 router.get('/logout', authController.logout);
 
+console.log("#andme!");
+
 module.exports = router;
