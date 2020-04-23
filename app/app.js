@@ -47,9 +47,9 @@ app.use(cookieParser());
 if (process.env.KEY !== 'caffiene24by7') {
   console.log('Environment not correctly set')
 } else {
-  console.log(`Our Session Secret ?  ${process.env.SECRET}`);
-  console.log(`Our Session Key ?  ${process.env.KEY}`);
-  console.log(`Our Map Key ?  ${process.env.MAP_KEY}`);
+  //console.log(`Our Session Secret ?  ${process.env.SECRET}`);
+  //console.log(`Our Session Key ?  ${process.env.KEY}`);
+  //console.log(`Our Map Key ?  ${process.env.MAP_KEY}`);
 
 }
 
@@ -82,9 +82,9 @@ app.use((req, res, next) => {
 // promisify some callback based APIs
 app.use((req, res, next) => {
   req.login = promisify(req.login, req);
-  next();
+  //next();
 });
-
+ 
 // After allllll that above middleware, we finally handle our own routes!
 app.use('/', routes);
 
